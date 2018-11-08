@@ -336,7 +336,7 @@ import SourceryRuntime
         var setter: String {
             let staticModifier = variable.isStatic ? "\(scope)." : ""
             if readonly {
-                let annotation = readonly ? "\n\t\t@available(*, deprecated, message: \"\(deprecatedMessage)\")" : ""
+                let annotation = ""
                 return "\(annotation)\n\t\tset {\t\(variable.isStatic ? "\(scope)." : "")\(privatePrototypeName) = newValue }"
             } else {
                 return "\n\t\tset {\t\(staticModifier)invocations.append(.\(propertyCaseSetName)(.value(newValue))); \(variable.isStatic ? "\(scope)." : "")\(privatePrototypeName) = newValue }"
